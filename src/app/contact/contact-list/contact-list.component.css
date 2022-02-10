@@ -1,0 +1,99 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    cursor: pointer;
+}
+
+button#add-contact span {
+    margin-right: 5px;
+}
+
+mat-form-field {
+    margin-left: 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+.contact-list-container {
+    width: 80vw;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.table-container {
+    overflow: auto;
+}
+
+.mat-table-sticky-border-elem-right.mat-header-cell {
+    text-align: right;
+}
+
+.mat-column-lastname{
+    padding-left: 1rem;
+}
+
+.mat-column-firstname {
+    padding-right: 1rem;
+}
+
+.mat-column-address {
+    padding-right: 1rem;
+}
+  
+
+.del-ed-icons-container {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.delete-icon {
+    color: rgb(201, 15, 15);
+    margin-left: 10px;
+}
+
+.edit-icon {
+    color: rgb(51, 51, 218);
+}
+
+
+@media (max-width: 1000px) {
+
+    button#add-contact {
+        width: 40%;
+        font-size: 12px;
+        margin-bottom: 1rem;
+    }
+
+    table {
+        width: 800px;
+      }
+    
+    td, th {
+        font-size: 12px;
+    }
+
+    .contact-list-container {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .mat-table-sticky-border-elem-left {
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+        width: 10%;
+    }
+    
+    .mat-table-sticky-border-elem-right {
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+        width: 12%;
+    }
+}

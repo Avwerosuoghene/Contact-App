@@ -1,0 +1,151 @@
+<body>
+    <div class="contact-list-container">
+        <h1 class="mat-h1">
+            Contacts
+        </h1>
+        <div class="contactbtn-search-containter">
+
+          <!-- Contact Add Button -->
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="onAddContact(false)" 
+            id="add-contact"> 
+            <span class="material-icons" >
+            account_circle
+            </span>
+            Add Contact
+          </button>
+
+          <!-- Contact Search  -->
+          <mat-form-field appearance="outline" >
+              <mat-label>Search</mat-label>
+              <input 
+                matInput  
+                (keyup)="onSearch(input.value)" 
+                #input>
+              <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+            <div class="table-container">
+              <table mat-table [dataSource]="contacts">
+                
+                <!-- Firstname Column -->
+                <ng-container 
+                  matColumnDef="firstname" 
+                  sticky class="stickyEl_Left">
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    First Name 
+                  </th>
+                  <td 
+                    mat-cell 
+                    *matCellDef="let element;" > 
+                    {{element.firstname}} 
+                  </td>
+                </ng-container>
+
+                <!-- Lastname Column -->
+                <ng-container matColumnDef="lastname">
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    Last Name 
+                  </th>
+                  <td mat-cell 
+                    *matCellDef="let element"> 
+                    {{element.lastname}} 
+                  </td>
+                </ng-container>
+              
+                <!-- Email Column-->
+                <ng-container matColumnDef="email">
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    Email 
+                  </th>
+                  <td 
+                    mat-cell 
+                    *matCellDef="let 
+                    element"> 
+                    {{element.email}} 
+                  </td>
+                </ng-container>
+              
+                <!-- Phone Column-->
+                <ng-container matColumnDef="phone">
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    Phone 
+                  </th>
+                  <td 
+                    mat-cell 
+                    *matCellDef="let element"> 
+                    {{element.phone}} 
+                  </td>
+                </ng-container>
+              
+                <!-- Address Column-->
+                <ng-container 
+                  matColumnDef="address" 
+                  class="rand">
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    Address </th>
+                  <td 
+                    mat-cell 
+                    *matCellDef="let element"> 
+                    {{element.address}} 
+                  </td>
+                </ng-container>
+
+                <!-- Contact Edit Column-->
+                <ng-container 
+                  matColumnDef="edit" 
+                  stickyEnd>
+                  <th 
+                    mat-header-cell 
+                    *matHeaderCellDef> 
+                    Edit 
+                  </th>
+                  <td 
+                    mat-cell 
+                    *matCellDef="let element; 
+                    let i = index"> 
+                    <div class="del-ed-icons-container">
+                      <a (click)="onAddContact(true, i)">
+                        <span 
+                          class="material-icons edit-icon" 
+                          aria-label="edit">
+                          edit
+                        </span> 
+                      </a>
+                      <a (click)="onDeleteContact(i)">
+                        <span 
+                          class="material-icons delete-icon" 
+                          aria-label="delete">
+                          delete
+                        </span> 
+                      </a>
+                    </div>
+                  </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>     
+    </div>
+
+    <!-- Dynamic New Contact Component -->
+  <app-new-contact 
+    [hidden]="contactComponent == false" 
+    (close)="contactComponent == true? contactComponent = false: true;">
+  </app-new-contact> 
+</body>
+

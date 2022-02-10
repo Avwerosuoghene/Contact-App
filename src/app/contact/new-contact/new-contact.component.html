@@ -1,0 +1,88 @@
+<body>
+    <div class="new-contact-container">
+    <button 
+        mat-icon-button 
+        id="close-button" 
+        color="warn" 
+        (click)="onClose()">
+        <mat-icon matSuffix >cancel</mat-icon>
+    </button>
+    <h1 class="mat-h1">
+        Contact Details
+    </h1>
+    <form 
+        [formGroup]="contactForm" 
+        (ngSubmit)="contactFormSubmit()">
+        <div class="form-group">
+            <mat-form-field 
+                appearance="outline" 
+                id="firstname">
+                <mat-label>First Name</mat-label>
+                <input 
+                    matInput #input 
+                    type="text" 
+                    formControlName = "firstname">
+                <mat-icon matSuffix color="primary">person</mat-icon>
+            </mat-form-field>  
+            <mat-form-field 
+                appearance="outline" 
+                id="lastname" >
+                <mat-label >Last Name</mat-label>
+                <input 
+                    matInput 
+                    #input 
+                    type="text" 
+                    formControlName = "lastname">
+                <mat-icon 
+                    matSuffix 
+                    color="primary">person</mat-icon>
+            </mat-form-field>  
+        </div>
+
+        <div class="form-group">
+            <mat-form-field 
+                appearance="outline" 
+                id="email">
+                <mat-label>Email</mat-label>
+                <input 
+                    matInput 
+                    #input type="email" 
+                    formControlName = "email">
+                <mat-icon matSuffix color="primary">email</mat-icon>
+            </mat-form-field>  
+            <mat-form-field 
+                appearance="outline" 
+                id="phone">
+                <mat-label>Phone</mat-label>
+                <input 
+                    matInput 
+                    #input 
+                    type="text" 
+                    formControlName = "phone">
+                <mat-icon matSuffix color="primary">phone_android</mat-icon>
+            </mat-form-field>  
+        </div>
+            <mat-form-field 
+                appearance="outline" 
+                id="address" >
+                <mat-label>Address</mat-label>
+                <input 
+                    matInput 
+                    #input 
+                    type="text" 
+                    formControlName = "address">
+                <mat-icon matSuffix color="primary">home</mat-icon>
+            </mat-form-field>  
+
+            <button 
+                mat-raised-button 
+                color="primary" 
+                id="submit-button" 
+                [disabled]="contactForm.invalid">
+                Submit
+            </button>
+    </form>
+
+    
+</div>
+</body>
